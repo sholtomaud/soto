@@ -2,3 +2,5 @@ node_modules
 NOTES.md
 decode.js
 *.log
+bundle.map.json
+fonts
