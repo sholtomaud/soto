@@ -1,0 +1,191 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/chr/.nvm/versions/node/v0.12.7/bin/node',
+1 verbose cli   '/Users/chr/.nvm/versions/node/v0.12.7/bin/npm',
+1 verbose cli   'version',
+1 verbose cli   'patch',
+1 verbose cli   '-m',
+1 verbose cli   'Bumped to %s' ]
+2 info using npm@2.11.3
+3 info using node@v0.12.7
+4 info preversion shotlom@1.0.2
+5 info git [ 'status', '--porcelain' ]
+6 verbose stack Error: Error: Git working directory not clean.
+6 verbose stack A  .gitignore
+6 verbose stack A  README.md
+6 verbose stack AM bundle.map.json
+6 verbose stack A  fonts/DancingScript-Bold.ttf
+6 verbose stack A  fonts/DancingScript-Regular.ttf
+6 verbose stack A  fonts/SpecialElite.ttf
+6 verbose stack A  fonts/materialdesignicons-webfont.eot
+6 verbose stack A  fonts/materialdesignicons-webfont.svg
+6 verbose stack A  fonts/materialdesignicons-webfont.ttf
+6 verbose stack A  fonts/materialdesignicons-webfont.woff
+6 verbose stack A  fonts/materialdesignicons-webfont.woff2
+6 verbose stack A  fonts/roboto-v15-latin-regular.eot
+6 verbose stack A  fonts/roboto-v15-latin-regular.svg
+6 verbose stack A  fonts/roboto-v15-latin-regular.ttf
+6 verbose stack A  fonts/roboto-v15-latin-regular.woff
+6 verbose stack A  fonts/roboto-v15-latin-regular.woff2
+6 verbose stack A  fonts/squada-one-v5-latin-regular.eot
+6 verbose stack A  fonts/squada-one-v5-latin-regular.svg
+6 verbose stack A  fonts/squada-one-v5-latin-regular.ttf
+6 verbose stack A  fonts/squada-one-v5-latin-regular.woff
+6 verbose stack A  fonts/squada-one-v5-latin-regular.woff2
+6 verbose stack A  img/sm.jpg
+6 verbose stack A  index.html
+6 verbose stack MM package.json
+6 verbose stack A  scripts/app/activityRouter/index.js
+6 verbose stack A  scripts/app/activityRouter/routes.js
+6 verbose stack A  scripts/app/index.js
+6 verbose stack A  scripts/app/models/controls.js
+6 verbose stack A  scripts/app/models/data.js
+6 verbose stack A  scripts/app/models/img.json
+6 verbose stack A  scripts/app/models/index.js
+6 verbose stack A  scripts/app/models/latest.js
+6 verbose stack A  scripts/app/models/menus.js
+6 verbose stack A  scripts/app/models/search.js
+6 verbose stack A  scripts/app/models/session.js
+6 verbose stack A  scripts/app/models/stats.js
+6 verbose stack A  scripts/app/persistence/index.js
+6 verbose stack A  scripts/app/persistence/nrds/account.js
+6 verbose stack A  scripts/app/persistence/nrds/index.js
+6 verbose stack A  scripts/app/persistence/nrds/record.js
+6 verbose stack A  scripts/app/services/index.js
+6 verbose stack A  scripts/app/services/menus/index.js
+6 verbose stack A  scripts/app/services/search/index.js
+6 verbose stack A  scripts/app/services/session/index.js
+6 verbose stack A  scripts/app/services/session/misc.js
+6 verbose stack A  scripts/config/index.js
+6 verbose stack A  scripts/fastn/index.js
+6 verbose stack A  scripts/index.js
+6 verbose stack A  scripts/ui/activities/index.js
+6 verbose stack A  scripts/ui/controls/activities.js
+6 verbose stack A  scripts/ui/controls/appBar.js
+6 verbose stack A  scripts/ui/controls/index.js
+6 verbose stack A  scripts/ui/index.js
+6 verbose stack A  scripts/ui/menus/index.js
+6 verbose stack A  scripts/ui/menus/main.js
+6 verbose stack A  scripts/ui/pages/history.js
+6 verbose stack A  scripts/ui/pages/home.js
+6 verbose stack A  scripts/ui/pages/index.js
+6 verbose stack A  scripts/ui/pages/info.js
+6 verbose stack A  scripts/ui/pages/login.js
+6 verbose stack A  scripts/ui/pages/note.js
+6 verbose stack A  scripts/ui/pages/resume.js
+6 verbose stack A  stylus/activities/index.styl
+6 verbose stack A  stylus/bars/app.styl
+6 verbose stack A  stylus/bars/index.styl
+6 verbose stack A  stylus/bars/search.styl
+6 verbose stack A  stylus/bars/user.styl
+6 verbose stack A  stylus/components/fonts/index.styl
+6 verbose stack A  stylus/components/index.styl
+6 verbose stack A  stylus/components/mdi/index.styl
+6 verbose stack A  stylus/components/mdi/mdi.styl
+6 verbose stack A  stylus/components/mdi/mdiCustom.styl
+6 verbose stack A  stylus/index.styl
+6 verbose stack A  stylus/menus/index.styl
+6 verbose stack A  stylus/menus/main.styl
+6 verbose stack A  stylus/modal/index.styl
+6 verbose stack A  stylus/pages/home.styl
+6 verbose stack A  stylus/pages/index.styl
+6 verbose stack A  stylus/pages/info.styl
+6 verbose stack A  stylus/pages/note.styl
+6 verbose stack A  stylus/pages/resume.styl
+6 verbose stack     at /Users/chr/.nvm/versions/node/v0.12.7/lib/node_modules/npm/lib/version.js:71:23
+6 verbose stack     at /Users/chr/.nvm/versions/node/v0.12.7/lib/node_modules/npm/lib/version.js:151:34
+6 verbose stack     at ChildProcess.exithandler (child_process.js:742:7)
+6 verbose stack     at ChildProcess.emit (events.js:110:17)
+6 verbose stack     at maybeClose (child_process.js:1015:16)
+6 verbose stack     at Socket.<anonymous> (child_process.js:1183:11)
+6 verbose stack     at Socket.emit (events.js:107:17)
+6 verbose stack     at Pipe.close (net.js:485:12)
+7 verbose cwd /Users/chr/dev/soto
+8 error Darwin 13.4.0
+9 error argv "/Users/chr/.nvm/versions/node/v0.12.7/bin/node" "/Users/chr/.nvm/versions/node/v0.12.7/bin/npm" "version" "patch" "-m" "Bumped to %s"
+10 error node v0.12.7
+11 error npm  v2.11.3
+12 error Error: Git working directory not clean.
+12 error A  .gitignore
+12 error A  README.md
+12 error AM bundle.map.json
+12 error A  fonts/DancingScript-Bold.ttf
+12 error A  fonts/DancingScript-Regular.ttf
+12 error A  fonts/SpecialElite.ttf
+12 error A  fonts/materialdesignicons-webfont.eot
+12 error A  fonts/materialdesignicons-webfont.svg
+12 error A  fonts/materialdesignicons-webfont.ttf
+12 error A  fonts/materialdesignicons-webfont.woff
+12 error A  fonts/materialdesignicons-webfont.woff2
+12 error A  fonts/roboto-v15-latin-regular.eot
+12 error A  fonts/roboto-v15-latin-regular.svg
+12 error A  fonts/roboto-v15-latin-regular.ttf
+12 error A  fonts/roboto-v15-latin-regular.woff
+12 error A  fonts/roboto-v15-latin-regular.woff2
+12 error A  fonts/squada-one-v5-latin-regular.eot
+12 error A  fonts/squada-one-v5-latin-regular.svg
+12 error A  fonts/squada-one-v5-latin-regular.ttf
+12 error A  fonts/squada-one-v5-latin-regular.woff
+12 error A  fonts/squada-one-v5-latin-regular.woff2
+12 error A  img/sm.jpg
+12 error A  index.html
+12 error MM package.json
+12 error A  scripts/app/activityRouter/index.js
+12 error A  scripts/app/activityRouter/routes.js
+12 error A  scripts/app/index.js
+12 error A  scripts/app/models/controls.js
+12 error A  scripts/app/models/data.js
+12 error A  scripts/app/models/img.json
+12 error A  scripts/app/models/index.js
+12 error A  scripts/app/models/latest.js
+12 error A  scripts/app/models/menus.js
+12 error A  scripts/app/models/search.js
+12 error A  scripts/app/models/session.js
+12 error A  scripts/app/models/stats.js
+12 error A  scripts/app/persistence/index.js
+12 error A  scripts/app/persistence/nrds/account.js
+12 error A  scripts/app/persistence/nrds/index.js
+12 error A  scripts/app/persistence/nrds/record.js
+12 error A  scripts/app/services/index.js
+12 error A  scripts/app/services/menus/index.js
+12 error A  scripts/app/services/search/index.js
+12 error A  scripts/app/services/session/index.js
+12 error A  scripts/app/services/session/misc.js
+12 error A  scripts/config/index.js
+12 error A  scripts/fastn/index.js
+12 error A  scripts/index.js
+12 error A  scripts/ui/activities/index.js
+12 error A  scripts/ui/controls/activities.js
+12 error A  scripts/ui/controls/appBar.js
+12 error A  scripts/ui/controls/index.js
+12 error A  scripts/ui/index.js
+12 error A  scripts/ui/menus/index.js
+12 error A  scripts/ui/menus/main.js
+12 error A  scripts/ui/pages/history.js
+12 error A  scripts/ui/pages/home.js
+12 error A  scripts/ui/pages/index.js
+12 error A  scripts/ui/pages/info.js
+12 error A  scripts/ui/pages/login.js
+12 error A  scripts/ui/pages/note.js
+12 error A  scripts/ui/pages/resume.js
+12 error A  stylus/activities/index.styl
+12 error A  stylus/bars/app.styl
+12 error A  stylus/bars/index.styl
+12 error A  stylus/bars/search.styl
+12 error A  stylus/bars/user.styl
+12 error A  stylus/components/fonts/index.styl
+12 error A  stylus/components/index.styl
+12 error A  stylus/components/mdi/index.styl
+12 error A  stylus/components/mdi/mdi.styl
+12 error A  stylus/components/mdi/mdiCustom.styl
+12 error A  stylus/index.styl
+12 error A  stylus/menus/index.styl
+12 error A  stylus/menus/main.styl
+12 error A  stylus/modal/index.styl
+12 error A  stylus/pages/home.styl
+12 error A  stylus/pages/index.styl
+12 error A  stylus/pages/info.styl
+12 error A  stylus/pages/note.styl
+12 error A  stylus/pages/resume.styl
+13 error If you need help, you may report this error at:
+13 error     <https://github.com/npm/npm/issues>
+14 verbose exit [ 1, true ]

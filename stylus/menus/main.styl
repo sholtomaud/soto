@@ -1,0 +1,44 @@
+.main-items{
+    // padding: 10px;
+    display: flex;
+    color: black;
+    flex-direction: column;
+    // justify-content: space-between;
+    align-items: strech;
+    
+}
+
+.main-item{
+    padding: 10px;
+    display: flex;
+    color: black;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+.main-item:hover { 
+    background-color: rgba(200,200,200,1);
+}
+
+.menu-label, .menuTitle{
+    padding: 10px;
+    font-size: 20px; 
+    font-family: 'SpecialElite';
+    text-transform: capitalize;
+}
+
+.mainMenu{
+    font-family: Roboto;
+    font-size: 16px;
+    top: 0;
+    left: 0;
+    margin-right: 10px;
+    background: rgba(255,255,255,.99);
+    box-shadow: 2px 2px 2px #888;
+    color: black;
+    @media (min-width: 600px) {
+      width: 400px;
+      position: fixed;
+    }
+}
