@@ -69,7 +69,14 @@
 }
 
 
+.homeDetailItemTitleLine{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
 .homeDetailItemTitle{
+    color: black
     font-size: mobile-section-font-size;
     @media (min-width: 600px) {
         font-size: desktop-section-font-size;      
@@ -79,11 +86,17 @@
     text-transform: uppercase;
 }
 
+.home-mdi .mdi{
+    font-size: 10px;
+}
+
 .homeDetailItemSource{
-    font-family: 'Roboto';
-    font-size: 14px;
+    // font-family: 'Roboto';
+    font-size: 10px;
+    padding-right: 7px;
     // color: #f2cc00;
-    color: SkyBlue ;
+    // color: SkyBlue ;
+    color: rgba(126,192,238,0.5) ;
     // color: gray;
 }
 
@@ -100,7 +113,6 @@
     padding-bottom: 10px;
     font-family: 'SpecialElite';
 }
-
 
 
 @keyframes fadein {

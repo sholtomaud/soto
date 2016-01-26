@@ -83,4 +83,3 @@ module.exports = function( activityModel ){
     ).attach(app.models.data.model);
 }
 
-

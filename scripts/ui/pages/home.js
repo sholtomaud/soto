@@ -8,8 +8,18 @@ module.exports = function( activityModel ){
             items: fastn.binding('notes|*'),
             template: function(model){
                return fastn('div', {class: 'homeDetailsItem'},
-                        fastn('div',{class: 'homeDetailItemTitle'}, fastn.binding('item.title') ),
-                        fastn('div',{class: 'homeDetailItemSource'}, fastn.binding('item.source') ),
+                        // fastn('div',{class: 'homeDetailItemTitle'}, fastn.binding('item.title') ),
+                        fastn('div',{class: 'homeDetailItemTitleLine'}, 
+                            fastn('div',{class: 'homeDetailItemSource'}, 
+                                fastn('i', {class: fastn.binding('item.mdi',function(mdi){
+                                        return 'mdi mdi-' + mdi;
+                                    }) 
+                                })
+                                // , 
+                                // fastn.binding('item.source') 
+                            ),
+                            fastn('div',{class: 'homeDetailItemTitle'}, fastn.binding('item.title') )
+                        ),
                         fastn('div',{class: 'homeDetailItemDate'}, fastn.binding('item.date',function(dateStr){
                             var date = new Date(dateStr)
                             var d = date.getDay();
