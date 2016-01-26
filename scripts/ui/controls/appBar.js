@@ -16,9 +16,9 @@ module.exports = function(){
             app.activityRouter.top('home');
         }),
         
-        fastn('div',{class:'info'},fastn('i', {'class': 'mdi mdi-language-javascript'}) )
+        fastn('div',{class:'info'},fastn('i', {'class': 'mdi mdi-book-open'}) )
         .on('click',function(event, scope) {
             event.preventDefault();
-            app.activityRouter.top('info');
+            app.activityRouter.top('resume');
         }))
 };

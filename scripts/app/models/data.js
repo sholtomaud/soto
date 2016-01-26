@@ -175,6 +175,7 @@ var fastn = require('^fastn'),
           }]
         }  
     }),
+    bio = require('./autobiography'),
     ntf = {
     "notes":[
             {
@@ -222,6 +223,7 @@ var fastn = require('^fastn'),
     };
 
     // Unlike the Dutch & Portuguese, the Brits brought the Westminster system with them which, among the colonial systems, was at the time possibly the best procedures available for operating a legislature. But they were as uncivilized, savage, merciless and terroristic barbarians like all the other colonists.
+console.log('bio',bio);
 
 dataModel.on('.|*', function (data){
     console.log('dataModel data: ',data);
@@ -229,6 +231,7 @@ dataModel.on('.|*', function (data){
 
 function init(callback){
     dataModel.set('notes',ntf.notes);
+    dataModel.set('autobiography',bio);
     callback(null, dataModel.get('data') ) 
 }
 

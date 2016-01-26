@@ -6,6 +6,10 @@ module.exports = {
     home:{
     	 _url: '/'
     },
+    edit:{
+         _url: 'edit',
+        _title: 'Editor'
+    },
     history:{
          _url: 'history',
         _title: 'History'

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch": "watchify scripts/index.js -o ../shotlom.github.io/index.browser.js -d & stylus -u nib -w stylus/index.styl -o ../shotlom.github.io/style.css",
-    "build": "browserify -g uglifyify scripts/index.js > ../shotlom.github.io/index.browser.js & stylus -u nib stylus/index.styl -o ../shotlom.github.io/style.css & cp -R ./fonts ../shotlom.github.io & cp -R ./img ../shotlom.github.io & cp *.html ../shotlom.github.io",
+    "build": "browserify -g uglifyify scripts/index.js > ../shotlom.github.io/index.browser.js & stylus -u nib stylus/index.styl -o ../shotlom.github.io/style.css | cssmin & cp -R ./fonts ../shotlom.github.io & cp -R ./img ../shotlom.github.io & cp *.html ../shotlom.github.io",
     "dist": "npm version patch -m \"Bumped to %s\"",
     "postversion": "git push && git push --tags && npm run build"
   },
@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "browserify": "^13.0.0",
+    "cssmin": "^0.4.3",
     "debug": "^2.2.0",
     "minifyify": "^7.2.1",
     "nib": "^1.1.0",

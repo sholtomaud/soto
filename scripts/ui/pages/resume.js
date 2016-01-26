@@ -25,9 +25,6 @@ module.exports = function( activityModel ){
                         class: 'resumeSectionList',
                         items: fastn.binding('item|*'),
                         template: function(model){
-                            var g = fastn.binding('key');
-                            console.log('section model', g );
-
                             return fastn('div',{class: 'resumeSectionItems'}, 
                                 fastn('list', {
                                     items: fastn.binding('item|*'),
