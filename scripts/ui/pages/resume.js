@@ -2,6 +2,10 @@ var fastn = require('^fastn'),
     app = require('^app'),
     simpleDate = require('simple-date'),
     titlecase = require('titlecase');
+var jsPDF = require('jspdf-browserify');
+
+var date = new Date();
+var cvFile = 'CV_SholtoMaud_' +  date.getFullYear();
     // ,
     // resumeSchema  = require('resume-schema');
     
@@ -18,18 +22,29 @@ module.exports = function( activityModel ){
                return fastn('div', {class: 'resumeSection'}, 
                     fastn('div',{class: 'resumeSectionTitle'}, fastn.binding('key')),
                     fastn('list', {
+                        class: 'resumeSectionList',
                         items: fastn.binding('item|*'),
-                        template: function(){
+                        template: function(model){
+                            var g = fastn.binding('key');
+                            console.log('section model', g );
+
                             return fastn('div',{class: 'resumeSectionItems'}, 
                                 fastn('list', {
                                     items: fastn.binding('item|*'),
-                                    template: function(){
-                                        return fastn('div',{class: 'resumeItem'}, fastn.binding('.',function(dat){
-                                            
-                                            var item = ( dat.key.toString().match(/date/gi) ) ? simpleDate.format(new Date(dat.item),'dmy') : dat.item;
-                                            return titlecase(dat.key.toString()) + ': ' + item ;
-                                        }) ); 
-                                        
+                                    template: function(model){
+                                        // console.log('model',model);
+                                        return fastn('div',{class: 'resumeItem'}, 
+                                                fastn('div',{class: 'resumeItemLabel'}, 
+                                                    fastn.binding('.',function(dat){
+                                                        var itemKey = titlecase(dat.key.toString()) ;
+                                                        // console.log('dat',dat.key.toString() ); 
+                                                        var item = ( dat.key.toString().match(/date/gi) ) ? simpleDate.format(new Date(dat.item),'dmy') : dat.item;
+                                                        var row = fastn('div',{class: 'resumeItemLabel'}, itemKey ) + ':  ' + item 
+                                                    return row;
+                                                })
+
+                                            ) 
+                                        ); 
                                     }
                                 })
                             );
@@ -38,49 +53,34 @@ module.exports = function( activityModel ){
                     })
                 );
             }
-        })
+        }),
+        // require('../controls/download')
+        fastn('div',{ 'class' : 'downloadButtons' }, 
+            fastn('div', { 
+                'class' : 'downloadPDF'
+            }, 
+                fastn('i', {'class': 'mdi mdi-file-pdf' } ) )
+                .on('click', function(event, scope){
+                    event.preventDefault();
+                    event.stopImmediatePropagation();
+                    // JSON.stringify( scope.get('jsonresume')
+                    
+                    cvFile = cvFile + '.pdf'
+                    var pdf = new jsPDF();
+                    pdf.text('Definitely A WORK IN PROGRESS ', 20, 20 )
+                        .text(['hi','ho'],30, 30 )
+                        .save(cvFile);
+            }),
+            fastn('a', { 
+                'class' : 'downloadJSON',
+                'href' : fastn.binding('jsonresume', function( resume ){
+                    var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(resume));
+                    return 'data:' + data;
+                }),
+                'download' : cvFile + '.json'
+            }, 'json')
+        )    
     ).attach(app.models.data.model);
 }
-
-// jsonresume":{
-//           "basics": {
-//             "name": "Sholto Maud",
-//             "label": "Programmer",
-//             "picture": "",
-//             "email": "sholto.maud@gmail.com",
-//             "phone": "+61 (0) 424 094 227",
-//             "url": "http://shotlom.github.io",
-//             "location": {
-//               "address": "Unit 9A 1a St Johns College",
-//               "postalCode": "4067",
-//               "city": "St Lucia",
-//               "countryCode": "AUS",
-//               "region": "Queensland"
-//             },
-//             "profiles": [{
-//               "network": "Twitter",
-//               "username": "sholtomaud",
-//               "url": "http://twitter.com/sholtomaud"
-//             },{
-//               "network": "LinkedIn",
-//               "username": "Sholto Maud",
-//               "url": "https://www.linkedin.com/in/sholtomaud"
-//             }]
-//           },
-
-
-var month = new Array();
-month[0] = "Jan";
-month[1] = "Feb";
-month[2] = "Mar";
-month[3] = "Apr";
-month[4] = "May";
-month[5] = "Jun";
-month[6] = "Jul";
-month[7] = "Aug";
-month[8] = "Sep";
-month[9] = "Oct";
-month[10] = "Nov";
-month[11] = "Dec";
 
 

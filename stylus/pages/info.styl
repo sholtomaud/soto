@@ -12,21 +12,40 @@
     flex-direction: column;
     align-items: center;
     @media (min-width: 600px) {
-      margin-left: 17%;
-      margin-right: 17%;
+      margin-left: 12%;
+      margin-right: 12%;
+      padding: 66px;
+      box-shadow: md-card-2;
+      margin-bottom: 60px;
+      margin-top: 20px;
     }
 }
     
 .infoTitle{
     margin: 25px 15px;
     font-family: 'SpecialElite';
-    font-size: 22px;
+    font-size: mobile-title-font-size;
+    @media (min-width: 600px) {
+        font-size: desktop-title-font-size;      
+    }
     text-align: center;
     text-transform: uppercase;
     // // font-size: 24px;
     // @media (min-width: 600px) {
     //   font-size: 28px;
     // }
+}
+
+.infoSectionTitle{
+    font-family: 'SpecialElite';
+    font-size: mobile-section-font-size;
+    @media (min-width: 600px) {
+        font-size: desktop-section-font-size;       
+        padding-top: 25px;
+    }
+    text-align: left;
+    padding-top: 10px;
+    text-transform: capitalize;
 }
 
 

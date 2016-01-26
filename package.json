@@ -4,8 +4,10 @@
   "description": "Sholto Maud",
   "main": "index.js",
   "scripts": {
-    "watch": "watchify scripts/index.js -o index.browser.js -d & stylus -u nib -w stylus/index.styl -o style.css",
-    "build": "browserify -g uglifyify scripts/index.js -d -p [minifyify --map bundle.map.json --output bundle.map.json ] > ../shotlom.github.io/index.browser.js & stylus -u nib stylus/index.styl -o ../shotlom.github.io/style.css & cp -R ./fonts ../shotlom.github.io & cp -R ./img ../shotlom.github.io & cp *.html ../shotlom.github.io & npm version patch -m \"Bumped to %s\" & git push"
+    "watch": "watchify scripts/index.js -o ../shotlom.github.io/index.browser.js -d & stylus -u nib -w stylus/index.styl -o ../shotlom.github.io/style.css",
+    "build": "browserify -g uglifyify scripts/index.js -d -p [minifyify --map bundle.map.json --output bundle.map.json ] > ../shotlom.github.io/index.browser.js & stylus -u nib stylus/index.styl -o ../shotlom.github.io/style.css & cp -R ./fonts ../shotlom.github.io & cp -R ./img ../shotlom.github.io & cp *.html ../shotlom.github.io",
+    "dist": "npm version patch -m \"Bumped to %s\"",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git"
@@ -21,6 +23,7 @@
     "doc-js": "^1.3.1",
     "fastclick": "^1.0.6",
     "fastn": "^2.0.0",
+    "jspdf-browserify": "^1.0.272",
     "modal-component": "^1.1.0",
     "resume-schema": "0.0.16",
     "simple-date": "^1.1.1",

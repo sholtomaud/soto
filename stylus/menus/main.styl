@@ -23,14 +23,19 @@
 
 .menu-label, .menuTitle{
     padding: 10px;
-    font-size: 20px; 
+    font-size: mobile-title-font-size;
+    @media (min-width: 600px) {
+        font-size: destop-title-font-size;      
+    } 
     font-family: 'SpecialElite';
     text-transform: capitalize;
 }
 
 .mainMenu{
-    font-family: Roboto;
-    font-size: 16px;
+    font-size: mobile-title-font-size;
+    @media (min-width: 600px) {
+        font-size: desktop-title-font-size;      
+    }
     top: 0;
     left: 0;
     margin-right: 10px;

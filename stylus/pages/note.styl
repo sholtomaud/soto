@@ -22,9 +22,11 @@
 .noteTitle{
     margin: 25px 15px;
     font-family: 'SpecialElite';
-    font-size: 22px;
+    font-size: mobile-title-font-size;
+    @media (min-width: 600px) {
+        font-size: desktop-title-font-size;      
+    }
     text-align: center;
-    // text-decoration: line-through;
     text-transform: uppercase;
 }
 

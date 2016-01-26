@@ -70,19 +70,25 @@
 
 
 .homeDetailItemTitle{
-    font-size: 20px; 
+    font-size: mobile-section-font-size;
+    @media (min-width: 600px) {
+        font-size: desktop-section-font-size;      
+    }
     // text-transform: capitalize;
     font-family: 'SpecialElite';
     text-transform: uppercase;
 }
 
 .homeDetailItemSource{
+    font-family: 'Roboto';
     font-size: 14px;
     // color: #f2cc00;
-    color: gray;
+    color: SkyBlue ;
+    // color: gray;
 }
 
 .homeDetailItemDate{
+    font-family: 'Roboto';
     padding-top: 4px;
     font-size: 12px;
     color: gray;

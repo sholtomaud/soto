@@ -1,21 +1,27 @@
 .resume{
     padding: 10px;
+    overflow: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: conter;
     justify-content: center;
+    -webkit-overflow-scrolling: touch;  
 }
 
 .resumePage{
     display: flex;
-    color: black;
     flex-direction: column;
-    align-items: center;
-    padding: 10px;
+    align-items: strech;
+    box-shadow: none;
+    padding: 15px;
+    margin-top: 10px;
     @media (min-width: 600px) {
-      // width: 400px;
-      // margin-left: auto;
-      width: 600px;
+      margin-left: 12%;
+      margin-right: 12%;
+      padding: 66px;
+      box-shadow: md-card-2;
+      margin-bottom: 60px;
+      margin-top: 20px;
     }
 }
 
@@ -28,29 +34,38 @@
     color: black;
     @media (min-width: 600px) {
       width: 600px;
-      // right: 0;
-      // margin-left: auto;
-      // width: 80%;
     }
 }
 
 .resumeTitle{
-    margin: 25px 15px;
-    font-family: 'Roboto';
-    font-size: 22px;
+    // margin: 25px 15px;
+    font-family: 'SpecialElite';
+    font-size: mobile-title-font-size;      
+    @media (min-width: 600px) {
+        font-size: desktop-title-font-size;
+    }
     text-align: left;
-    // text-decoration: line-through;
     text-transform: uppercase;
 }
 
 .resumeSectionTitle{
     // margin: 25px 15px;
-    font-family: 'Roboto';
-    font-size: 22px;
+    // font-family: 'Roboto';
+    font-family: 'SpecialElite';
+    font-size: mobile-section-font-size;
+    @media (min-width: 600px) {
+        font-size: desktop-section-font-size;       
+    }
+    // color: #000099 ;
     text-align: left;
     padding-top: 10px;
     // text-decoration: line-through;
     text-transform: capitalize;
+}
+
+.resumeSectionList{
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .resumeSectionItems{
@@ -61,16 +76,27 @@
 }
 
 .resumeItems{
-    // padding: 10px;
     display: flex
     flex-direction: column;
     align-items: flex-start;
 }
     
 .resumeItem{
-    // padding: 10px;
+    font-family: 'SpecialElite';
+    font-size: mobile-text-font-size;
+    @media (min-width: 600px) {
+        font-size: desktop-text-font-size;       
+    }
     display: flex
     flex-direction: row;
     align-items: flex-start;
     font-size: 14px;
+}
+
+.resumeItemLabel{
+    font-family: 'SpecialElite';
+    font-size: mobile-label-font-size;
+    @media (min-width: 600px) {
+        font-size: desktop-label-font-size;       
+    }
 }

@@ -13,12 +13,12 @@ module.exports = function(){
         fastn('div',{class:'title'}, 'Mr Sholto Maud' )
         .on('click',function(event, scope) {
             event.preventDefault();
-            app.activityRouter.top('home');
+            app.activityRouter.top('info');
         }),
         
-        fastn('div',{class:'info'},fastn('i', {'class': 'mdi mdi-information'}) )
+        fastn('div',{class:'info'},fastn('i', {'class': 'mdi mdi-home'}) )
         .on('click',function(event, scope) {
             event.preventDefault();
-            app.activityRouter.top('info');
+            app.activityRouter.top('home');
         }))
 };

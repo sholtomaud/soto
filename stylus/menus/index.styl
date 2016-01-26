@@ -11,7 +11,10 @@
 }
 
 .menu{
-    font-size: 30px;
+    font-size: mobile-title-font-size;
+    @media (min-width: 600px) {
+        font-size: desktop-title-font-size;      
+    }
     padding: 10px;
     
   will-change: transform;
