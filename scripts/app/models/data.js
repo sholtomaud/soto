@@ -183,13 +183,13 @@ var fastn = require('^fastn'),
               "source": "GitHub",
               "mdi": "github-circle",
               "date": "2016-01-01T18:25:43.511Z",
-              "snippit": "Patched x script because",
+              "snippit": "Patched x script because of y",
               "url": "http://twitter.com/sholtomaud"
             },{
               "_id":"02",
               "title": "Much complaint about nothing",
               "source": "Blog entry",
-              "mdi": "",
+              "mdi": "pen",
               "date": "2015-12-23T18:25:43.511Z",
               "snippit": "Why does the issue ...",
               "url": "http://twitter.com/sholtomaud"
