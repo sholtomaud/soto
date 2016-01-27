@@ -1,39 +1,20 @@
-var fastn = require('^fastn');
-var app = require('^app');
-
-module.exports = function(){
-  var loginComponent = fastn('div', {class: 'loginModal'},
-    fastn('form',{class:'login'},
-      fastn('label', {class:'loginTitle'}, 'Predicator Login'),
-      fastn('div', {class:'loginDetails'},
-        fastn('label','Login Name: '),
-        fastn('input', {
-          class: 'loginInput',
-          placeholder: 'Login ID',
-          value: fastn.binding('loginID'),
-          onchange: 'value:value'
-        }),
-        fastn('label', 'Password: '),
-        fastn('input', {
-          class: 'loginInput',
-          type: 'password',
-          placeholder: 'Password',
-          value: fastn.binding('password'),
-          onchange: 'value:value'
-        }),
-        fastn('button', 'Login')
-      ) 
-    ).on('submit', function(event, scope){
-      event.preventDefault();
-
-      sessionService.setSession({
-        loginID: ( scope.get('loginID') || 'Test User')
-      });
-
-      loginComponent.element.remove();
-      loginComponent.destroy();
-    })
-  ).attach();
-
-  return loginComponent;
-};
+var fastn = require('^fastn'),
+    app = require('^app');
+    
+module.exports = function( activityModel ){
+    return fastn('div', {class: 'loginPage'}, 
+            fastn('div',{class:'infoTitle'}, 'login'),
+            fastn('div',{class: 'loginInfo'},
+                fastn('div',{class:'infoSectionTitle'}, 'Username:'), 
+                fastn('input',
+                    {
+                        class:'loginInput'
+                    }),
+                fastn('div',{class:'infoSectionTitle'}, 'Password:'), 
+                fastn('input',
+                    {
+                        class:'loginInput'
+                    })
+            )
+        ).attach(app.models.stats.model);
+}

@@ -1,9 +1,10 @@
 module.exports = {
     edit: require('./edit'),
-    home: require('./home'),
+    home: require('./resume'),
     // menus: require('./menus'),
+    login: require('./login'),
     history: require('./history'),
     info: require('./info'),
-    note: require('./note'),
+    note: require('./home'),
     resume: require('./resume')
 };

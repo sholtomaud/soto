@@ -17,7 +17,7 @@ activitiesModel.on('.|**', function(activityData){
 });
 
 // Change the default home page name to be 'index'
-activityRouter.homeRoute = 'home';
+activityRouter.homeRoute = 'resume';
 
 activityRouter.on('add', function(activity, index){
     updateInfo(activity);

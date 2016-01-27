@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch": "watchify scripts/index.js -o ../shotlom.github.io/index.browser.js -d & stylus -u nib -w stylus/index.styl -o ../shotlom.github.io/style.css",
-    "build": "browserify -g uglifyify scripts/index.js > ../shotlom.github.io/index.browser.js & stylus -r -u nib < ~/dev/soto/stylus/index.styl | cssmin > ../shotlom.github.io/style.css | cssmin & cp -R ./fonts ../shotlom.github.io & cp -R ./img ../shotlom.github.io & cp *.html ../shotlom.github.io",
+    "build": "browserify -g uglifyify  -d -p [minifyify --map bundle.map.json --output bundle.map.json ] scripts/index.js > ../shotlom.github.io/index.browser.js & stylus -r -u nib < ~/dev/soto/stylus/index.styl | cssmin > ../shotlom.github.io/style.css | cssmin & cp -R ./fonts ../shotlom.github.io & cp -R ./img ../shotlom.github.io & cp *.html ../shotlom.github.io",
     "dist": "npm version patch -m \"Bumped to %s\"",
     "postversion": "git push && git push --tags && npm run build"
   },

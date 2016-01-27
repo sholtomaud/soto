@@ -16,9 +16,9 @@ module.exports = function(){
             app.activityRouter.top('home');
         }),
         
-        fastn('div',{class:'info'},fastn('i', {'class': 'mdi mdi-book-open'}) )
+        fastn('div',{class:'info'},fastn('i', {'class': 'mdi mdi-login'}) )
         .on('click',function(event, scope) {
             event.preventDefault();
-            app.activityRouter.top('resume');
+            app.activityRouter.top('login');
         }))
 };

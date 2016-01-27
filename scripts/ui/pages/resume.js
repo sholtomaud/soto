@@ -20,12 +20,16 @@ module.exports = function( activityModel ){
             items: fastn.binding('jsonresume|*'),
             template: function(model){
                return fastn('div', {class: 'resumeSection'}, 
-                    fastn('div',{class: 'resumeSectionTitle'}, fastn.binding('key')),
+                    fastn('div',{class: 'resumeSectionTitle'}, fastn.binding('key')
+                    ),
                     fastn('list', {
                         class: 'resumeSectionList',
                         items: fastn.binding('item|*'),
                         template: function(model){
                             return fastn('div',{class: 'resumeSectionItems'}, 
+                                fastn.binding('.', function(sectionItem){
+                                    return ( sectionItem.item  && typeof sectionItem.item === 'string'  ) ? sectionItem.key + ':  ' + sectionItem.item : '';
+                                }), 
                                 fastn('list', {
                                     items: fastn.binding('item|*'),
                                     template: function(model){
@@ -36,7 +40,7 @@ module.exports = function( activityModel ){
                                                         var itemKey = titlecase(dat.key.toString()) ;
                                                         // console.log('dat',dat.key.toString() ); 
                                                         var item = ( dat.key.toString().match(/date/gi) ) ? simpleDate.format(new Date(dat.item),'dmy') : dat.item;
-                                                        var row = fastn('div',{class: 'resumeItemLabel'}, itemKey ) + ':  ' + item 
+                                                        var row = itemKey  + ':  ' + item 
                                                     return row;
                                                 })
 
@@ -52,8 +56,48 @@ module.exports = function( activityModel ){
             }
         }),
         // require('../controls/download')
-        fastn('div',{ 'class' : 'downloadButtons' }, 
+        fastn('div',{ 'class' : 'controls' }, 
+            
             fastn('div', { 
+                'class' : 'downloadPDF'
+            }, 
+                fastn('i', {'class': fastn.binding('showUnlockIcon', function(show){ 
+                        return show ? 'mdi mdi-lock-open' : 'mdi mdi-lock';
+                    })
+                }) 
+
+                    // JSON.stringify( scope.get('jsonresume')
+                    
+                //     cvFile = cvFile + '.pdf'
+                //     var pdf = new jsPDF();
+                //     pdf.text('Definitely A WORK IN PROGRESS ', 20, 20 )
+                //         .text(['hi','ho'],30, 30 )
+                //         .save(cvFile);
+            ).on('click', function(event, scope){
+                    event.preventDefault();
+                    event.stopImmediatePropagation();
+                    
+                    scope.get('showUnlockIcon') ? app.models.data.model.set('showUnlockIcon',false) : app.models.data.model.set('showUnlockIcon',true); 
+                    // 
+                }),
+            fastn('div', { 
+                    'class' : 'download'
+                }, 
+                fastn('i', {'class': 'mdi mdi-download'})
+            ).on('click',function(event, scope){
+                
+                downloaders.show() ? downloaders.show(false) :  downloaders.show(true);
+                //show pdf & json modal buttons at the bottom of the control buttons menu
+            })
+            
+
+        )    
+    ).attach(app.models.data.model);
+}
+
+var downloaders = fastn('modal',
+        {class: 'downloaderButtons'},
+        fastn('div', { 
                 'class' : 'downloadPDF'
             }, 
                 fastn('i', {'class': 'mdi mdi-file-pdf' } ) )
@@ -67,6 +111,8 @@ module.exports = function( activityModel ){
                     pdf.text('Definitely A WORK IN PROGRESS ', 20, 20 )
                         .text(['hi','ho'],30, 30 )
                         .save(cvFile);
+
+                    downloaders.show(false);    
             }),
             fastn('a', { 
                 'class' : 'downloadJSON',
@@ -75,8 +121,26 @@ module.exports = function( activityModel ){
                     return 'data:' + data;
                 }),
                 'download' : cvFile + '.json'
-            }, 'json')
-        )    
-    ).attach(app.models.data.model);
-}
+                },'JayRes'
+                // fastn('img',
+                //     { 
+                //         class: 'imgIcon',
+                //         src: 'img/jsonresume.png',
+                //         alt: 'JayRes'
+                //     }
+                // ) 
 
+            ).on('click', function(){
+                downloaders.show(false);
+            })
+            
+
+
+
+    );
+
+
+downloaders.render();
+
+document.body.appendChild(downloaders.element);
+        

@@ -18,6 +18,10 @@ module.exports = {
          _url: 'site/{_id}',
         _title: 'Page'
     },
+    login:{
+         _url: 'login',
+        _title: 'Login'
+    },
     info:{
          _url: 'info',
         _title: 'Information'
