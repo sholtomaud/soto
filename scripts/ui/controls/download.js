@@ -4,7 +4,7 @@ var fastn = require('^fastn'),
     simpleDate = require('simple-date');
     cvFile = simpleDate.format('dashed',new Date());
     console.log('cvFIle',cvFile);
-    
+
 module.exports = function(){
     var controls = fastn('div',{ 'class' : 'controls' }, 
             fastn('div', { 
@@ -36,9 +36,7 @@ module.exports = function(){
                         }
                     }
 
-                    // var columns = ["ID"];
                     var pdf = new jsPDF('p', 'pt');
-                    // pdf.API.autoTable(columns, details);
                     pdf.text(details, 20, 20 )
                     pdf.save(cvFile);
             }),
