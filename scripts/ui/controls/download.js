@@ -2,8 +2,7 @@ var fastn = require('^fastn'),
     app = require('^app'),
     jsPDF = require('jspdf-browserify'),
     simpleDate = require('simple-date');
-    cvFile = simpleDate.format('dashed',new Date());
-    console.log('cvFIle',cvFile);
+    cvFile = simpleDate.format(new Date(), 'dashed' );
 
 module.exports = function(){
     var controls = fastn('div',{ 'class' : 'controls' }, 
