@@ -3,7 +3,7 @@ var fastn = require('^fastn'),
 
 module.exports = function(){
     return fastn('div', {class: 'appBar'},
-        fastn('div',{class:'menu'},fastn('i', {'class': 'mdi mdi-menu'}) )
+        fastn('div',{class:'menuIcon'},fastn('i', {'class': 'mdi mdi-menu'}) )
         .on('click', function(event, scope) {
             event.preventDefault();
             event.stopImmediatePropagation();
@@ -16,7 +16,7 @@ module.exports = function(){
             app.activityRouter.top('home');
         }),
         
-        fastn('div',{class:'info'},fastn('i', {'class': 'mdi mdi-login'}) )
+        fastn('div',{class:'loginIcon'},fastn('i', {'class': 'mdi mdi-login'}) )
         .on('click',function(event, scope) {
             event.preventDefault();
             app.activityRouter.top('login');

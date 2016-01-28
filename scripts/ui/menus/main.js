@@ -21,7 +21,7 @@ var main = fastn('modal', {class: 'mainMenu'},
                     fastn('div',{class:'menu-label'},fastn.binding('item.label'))
                 )
                 .on('click', function(event, scope) {
-                    app.activityRouter.top(scope.get('item.target'));
+                    app.activityRouter.top(scope.get('item.target'),scope.get('item'));
                     main.show(false);// require('../menus').main.show(true);
                 });
             }

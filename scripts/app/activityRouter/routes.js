@@ -14,6 +14,10 @@ module.exports = {
          _url: 'history',
         _title: 'History'
     },
+    library:{
+         _url: 'library',
+        _title: 'My library'
+    },
     page:{
          _url: 'site/{_id}',
         _title: 'Page'
@@ -31,8 +35,12 @@ module.exports = {
         _title: 'Notes to file'
     },
     resume:{
-    	 _url: 'resume',
-    	_title: 'Resume'
+         _url: 'resume',
+        _title: 'Resume'
+    },
+    sheet:{
+    	 _url: 'sheet',
+    	_title: 'Sheet'
     },
     menus:{
         _url: 'menus',

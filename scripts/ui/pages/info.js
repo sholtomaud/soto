@@ -44,7 +44,7 @@ module.exports = function( activityModel ){
                         href: 'http://jsonresume.org/'
                     }, 'JSONResume'),
                     ', schema.'),
-                fastn('div',{class:'appDetails'} , 'Currently it is hosted using GitHub pages, however it has the capability of a generic persistence layer, using a NoSQL storage services like ', 
+                fastn('div',{class:'appDetails'} , 'Currently it is hosted using GitHub pages so it is a static page without a database, however it has the capability of a generic persistence layer, using a NoSQL storage services like ', 
                     fastn('a',{
                         href: 'https://www.mongodb.com/'
                     }, 'MongoDB'),

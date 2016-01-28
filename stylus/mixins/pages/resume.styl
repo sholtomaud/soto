@@ -1,5 +1,5 @@
 
-//TODO get the pixel sizes of an a4 sheet and make that the sheet size.
+
 
 .resume{
     padding: 10px;
@@ -19,14 +19,34 @@
     padding: 15px;
     margin-top: 10px;
     @media (min-width: 600px) {
+      right: 0;
+      left: 0;
+      bottom: 0;
       margin-left: 12%;
       margin-right: 12%;
       padding: 66px;
       box-shadow: md-card-2;
       margin-bottom: 60px;
       margin-top: 20px;
+      min-width : A4-72-PPI-width;
+      // max-width : A4-72-PPI-width;
+      min-height  A4-72-PPI-height; 
+      // max-height  A4-72-PPI-height; 
+
     }
+    border-color: none;
+
 }
+
+.resumePage:dragexit {
+    border: 1px solid red;
+    -webkit-transition: border-color 1.25s ease-out;
+       -moz-transition: border-color 1.25s ease-out;
+        -ms-transition: border-color 1.25s ease-out;
+         -o-transition: border-color 1.25s ease-out;
+            transition: border-color 1.25s ease-out;
+}
+
 
 .resumeDetails{
     color: black;
@@ -36,9 +56,11 @@
     align-items: strech;
     color: black;
     @media (min-width: 600px) {
-      width: 600px;
+      // width: 600px;
     }
 }
+
+
 
 .resumeTitle{
     // margin: 25px 15px;
@@ -49,6 +71,17 @@
     text-align: left;
     text-transform: uppercase;
 }
+
+.resumeSection{
+    padding-bottom: 10px;
+    // border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: strech;
+    // width: 100%;
+}
+
 
 .resumeSectionTitle{
     font-size: mobile-section-font-size;

@@ -4,3 +4,4 @@ decode.js
 *.log
 bundle.map.json
 fonts
+library.js
