@@ -115,15 +115,6 @@ module.exports = {
             "endDate": "1990-01-01"
         }
     ],
-    "publications": [
-        {
-            "name": "Publication",
-            "publisher": "Company",
-            "releaseDate": "2014-10-01",
-            "website": "http://publication.com",
-            "summary": "Description..."
-        }
-    ],
     "skills": [
         {
             "name": "Web Development",
