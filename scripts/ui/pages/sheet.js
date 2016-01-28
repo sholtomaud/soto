@@ -10,6 +10,7 @@ module.exports = function( activityModel ){
     var dataSource = fastn.binding('item.values.dataSource').attach(activityModel)();
     return fastn('div', {class: 'resumePage'}, 
         fastn('div',{class: 'noteTitle'}, 'demo d&d jsonresume' ),
+        fastn('div',{class: 'noteTitle'}, 'Drag a valid JSONResume file onto the page and render your resume.' ),
         fastn('list', {
             class: 'resumeDetails',
             items: fastn.binding('data.'+dataSource+'|*'),
