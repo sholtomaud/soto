@@ -14,16 +14,19 @@ var fastn = require('^fastn'),
     }),
     data = {},
     schemas = {},
+    styles = {},
     jayres = require('./jsonresume'),
     bio = require('./autobiography'),
     ntf = require('./ntf'),
     jsonResumeSchema = require('./jsonResumeSchema');
+    jsonResumeStyle = require('./jsonResumeStyle');
     // library = require('./library');
 
-    data.jsonresume = jayres;
+    data.resume = jayres;
     data.bio = bio;
     data.notes = ntf;
     schemas.jsonResumeSchema = jsonResumeSchema;
+    styles = jsonResumeStyle;
     // data.library = library;
     // Unlike the Dutch & Portuguese, the Brits brought the Westminster system with them which, among the colonial systems, was at the time possibly the best procedures available for operating a legislature. But they were as uncivilized, savage, merciless and terroristic barbarians like all the other colonists.
 // console.log('bio',jayres);
@@ -32,13 +35,44 @@ dataModel.on('.|*', function (data){
     console.log('dataModel data: ',data);
 })
 
+dataModel.on('styles.defaultStyle', function (defaultStyle){
+    dataModel.set('styles.currentStyle',defaultStyle);
+})
+
+dataModel.on('data.defaultResume', function (resume){
+    dataModel.set('data.currentResume',resume);
+})
+
+
 function init(){
     dataModel.set('data',data);
     dataModel.set('schemas',schemas)
+    dataModel.set('styles',styles)
+}
+
+function resetStyleToDefault(){
+    var defaultStyle = dataModel.get('styles.defaultStyle');
+    dataModel.set('styles.currentStyle', defaultStyle);
+}
+
+function resetResumeToDefault(){
+    var defaultResume = dataModel.get('data.defaultResume');
+    dataModel.set('data.currentResume', defaultResume );
+}
+
+function updateStyle(style){
+    var currentResume = dataModel.get('data.currentResume');
+    dataModel.set('styles.currentStyle', style, function(){
+      console.log('done update');
+    });
+    dataModel.set('data.currentResume', currentResume);
 }
 
 init();
 
 module.exports = {
-    model: dataModel
+    model: dataModel,
+    resetStyleToDefault: resetStyleToDefault,
+    updateStyle: updateStyle,
+    currentStyle : fastn.binding('styles.currentStyle').attach(dataModel)
 };

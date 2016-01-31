@@ -1,5 +1,5 @@
 module.exports = {
-    edit: require('./edit'),
+    // edit: require('./edit'),
     home: require('./resume'),
     // menus: require('./menus'),
     library: require('./library'),

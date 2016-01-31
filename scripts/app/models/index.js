@@ -4,6 +4,6 @@ module.exports = {
   data : require('./data'),
   latest : require('./latest'),
   menus : require('./menus'),
-  stats: require('./stats'),
+  // stats: require('./stats'),
   session: require('./session.js')
 }

@@ -17,7 +17,7 @@ module.exports = function( activityModel ){
         fastn('div',{class: 'noteTitle'}, 'resume' ),
         fastn('list', {
             class: 'resumeDetails',
-            items: fastn.binding('data.jsonresume|*'),
+            items: fastn.binding('data.resume|*'),
             template: function(model){
                return fastn('div', {class: 'resumeSection'}, 
                     fastn('div',{class: 'resumeSectionTitle'}, fastn.binding('key')
@@ -55,71 +55,71 @@ module.exports = function( activityModel ){
                 );
             }
         }),
-        // require('../controls/download')
-        fastn('div',{ 'class' : 'controls' }, 
-            fastn('div', { 
-                'class' : 'downloadPDF'
-            }, 
-                fastn('i', {'class': 'mdi mdi-file-pdf' } ) )
-                .on('click', function(event, scope){
-                    event.preventDefault();
-                    event.stopImmediatePropagation();
-                    var cvData = scope.get('data.jsonresume') ;
-                    cvFile = cvFile + '.pdf'
-                    var pdf = new jsPDF();
+        require('../controls/download')()
+    //     fastn('div',{ 'class' : 'controls' }, 
+    //         fastn('div', { 
+    //             'class' : 'downloadPDF'
+    //         }, 
+    //             fastn('i', {'class': 'mdi mdi-file-pdf' } ) )
+    //             .on('click', function(event, scope){
+    //                 event.preventDefault();
+    //                 event.stopImmediatePropagation();
+    //                 var cvData = scope.get('data.jsonresume') ;
+    //                 cvFile = cvFile + '.pdf'
+    //                 var pdf = new jsPDF();
 
-                    // var section = [];
-                    var details = [];
-                    for(section in cvData){
-                        details.push(section);
-                        // pdf.setFontSize(20);
-                        // pdf.text(section, 20, 20 );
-                        if ( cvData[section] !== null && typeof cvData[section] === 'object' ){
-                            // var section = [];
-                            for( item in cvData[section] ){
-                                if ( cvData[section][item] !== null && typeof cvData[section][item] !== 'object' ){
-                                    var line = item +': '+ cvData[section][item];
-                                    details.push(line);
-                                }
-                                else if (cvData[section][item] !== null && typeof cvData[section][item] === 'object'){
-                                    for( i in cvData[section][item] ){
-                                        var l = i +': '+ cvData[section][item][i];
-                                        details.push(l);       
-                                    }
-                                }
-                            }
-                            // pdf.setFontSize(14);
-                            // pdf.text(section, 20, 20 );
-                        }
-                    }
-                    // var arr = Object.keys(cvData).map(function(value, index) { 
-                    //     console.log(cvData[value]);
+    //                 // var section = [];
+    //                 var details = [];
+    //                 for(section in cvData){
+    //                     details.push(section);
+    //                     // pdf.setFontSize(20);
+    //                     // pdf.text(section, 20, 20 );
+    //                     if ( cvData[section] !== null && typeof cvData[section] === 'object' ){
+    //                         // var section = [];
+    //                         for( item in cvData[section] ){
+    //                             if ( cvData[section][item] !== null && typeof cvData[section][item] !== 'object' ){
+    //                                 var line = item +': '+ cvData[section][item];
+    //                                 details.push(line);
+    //                             }
+    //                             else if (cvData[section][item] !== null && typeof cvData[section][item] === 'object'){
+    //                                 for( i in cvData[section][item] ){
+    //                                     var l = i +': '+ cvData[section][item][i];
+    //                                     details.push(l);       
+    //                                 }
+    //                             }
+    //                         }
+    //                         // pdf.setFontSize(14);
+    //                         // pdf.text(section, 20, 20 );
+    //                     }
+    //                 }
+    //                 // var arr = Object.keys(cvData).map(function(value, index) { 
+    //                 //     console.log(cvData[value]);
                         
-                    //     return value;
-                    // });
+    //                 //     return value;
+    //                 // });
 
-                    // console.log(arr);
-                    pdf.text(details, 20, 20 )
-                    pdf.save(cvFile);
+    //                 // console.log(arr);
+    //                 pdf.text(details, 20, 20 )
+    //                 pdf.save(cvFile);
 
-            }),
-            fastn('a', { 
-                'class' : 'downloadJSON',
-                'href' : fastn.binding('data.jsonresume', function( resume ){
-                    var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(resume));
-                    return 'data:' + data;
-                }),
-                'download' : cvFile + '.json'
-                },'JayRes'
-            ).on('click', function(){
-                downloaders.show(false);
-            })
+    //         }),
+    //         fastn('a', { 
+    //             'class' : 'downloadJSON',
+    //             'href' : fastn.binding('data.jsonresume', function( resume ){
+    //                 var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(resume));
+    //                 return 'data:' + data;
+    //             }),
+    //             'download' : cvFile + '.json'
+    //             },'JayRes'
+    //         ).on('click', function(){
+    //             downloaders.show(false);
+    //         })
             
 
             
             
 
-        )    
+    //     )    
     )
     .on('dragenter', function(e){ 
         e.preventDefault();

@@ -1,4 +1,8 @@
 module.exports = {
+    "title": {
+        "label": "Mr Sholto Maud",
+        "visible":false
+    },    
     "basics": {
         "name": "Sholto Maud",
         "label": "javaScript & Node.js Programmer",

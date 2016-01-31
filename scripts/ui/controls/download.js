@@ -1,55 +1,13 @@
-var fastn = require('^fastn'),
-    app = require('^app'),
-    jsPDF = require('jspdf-browserify'),
-    simpleDate = require('simple-date');
-    cvFile = simpleDate.format(new Date(), 'dashed' );
+var fastn = require('^fastn');
+    // app = require('^app'),
+    // simpleDate = require('simple-date');
+    // cvFile = simpleDate.format(new Date(), 'dashed' );
 
 module.exports = function(){
     var controls = fastn('div',{ 'class' : 'controls' }, 
-            fastn('div', { 
-                'class' : 'downloadPDF'
-            }, 
-                fastn('i', {'class': 'mdi mdi-file-pdf' } ) )
-                .on('click', function(event, scope){
-                    event.preventDefault();
-                    event.stopImmediatePropagation();
-                    var cvData = scope.get('data.dndjsonresume') ;
-                    cvFile = cvFile + '.pdf'
-                    
-                    var details = [];
-                    for(section in cvData){
-                        details.push(section);
-                        if ( cvData[section] !== null && typeof cvData[section] === 'object' ){
-                            for( item in cvData[section] ){
-                                if ( cvData[section][item] !== null && typeof cvData[section][item] !== 'object' ){
-                                    var line = item +': '+ cvData[section][item];
-                                    details.push(line);
-                                }
-                                else if (cvData[section][item] !== null && typeof cvData[section][item] === 'object'){
-                                    for( i in cvData[section][item] ){
-                                        var l = i +': '+ cvData[section][item][i];
-                                        details.push(l);       
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    var pdf = new jsPDF('p', 'pt');
-                    pdf.text(details, 20, 20 )
-                    pdf.save(cvFile);
-            }),
-            fastn('a', { 
-                'class' : 'downloadJSON',
-                'href' : fastn.binding('data.dndjsonresume', function( resume ){
-                    var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(resume));
-                    return 'data:' + data;
-                }),
-                'download' : cvFile + '.json'
-                },'JayRes'
-            ).on('click', function(){
-                downloaders.show(false);
-            })
+            require('./css')(),
+            require('./pdf')(),
+            require('./jayres')()
         )
 
     controls.render();

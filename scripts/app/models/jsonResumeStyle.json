@@ -1,0 +1,55 @@
+{
+    "schemaId": "some id",
+    "schemaType":"css",
+    "basics": {
+        "color" : "red",
+        "font-family" : "Roboto"
+    },"work": {
+        "color" : "red",
+        "font-family" : "Roboto"
+    },"volunteer": {
+        "color" : "lightGreen",
+        "font-family" : "Arial"
+    },"education": {
+        "color" : "lightGreen",
+        "font-family" : "Roboto"
+    },"awards": {
+        "color" : "Roboto",
+        "font-family" : "Courier"
+    },"publications": {
+        "color" : "red",
+        "font-family" : "Roboto"
+    },"skills": {
+        "color" : "blue",
+        "font-family" : "Roboto"
+    },"languages": {
+        "color" : "blue",
+        "font-family" : "Roboto"
+    },"interests": {
+        "color" : "blue",
+        "font-family" : "Roboto"
+    },"references": {
+        "color" : "blue",
+        "font-family" : "Roboto"
+    },"resumeSection":{
+        "padding-bottom": "10px",
+        "display": "flex",
+        "flex-direction": "column",
+        "justify-content": "flex-start",
+        "align-items": "strech",
+        "color": "lightGreen",
+        "font-family": "Arial" 
+    },
+    "title": { 
+        "color" : "red",
+        "font-family" : "Arial",
+        "font-size" : "40px",
+        "color": "lightGreen"
+    },
+    "sectionTitle": { 
+        "color": "lightGreen",
+        "font-family" : "Arial",
+        "font-size" : "20px"
+    }
+
+}

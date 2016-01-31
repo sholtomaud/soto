@@ -51,6 +51,6 @@ module.exports = function( activityModel ){
                     ', which will be implemented later.'
                 )     
             )
-        ).attach(app.models.stats.model);
+        );
 }
 
