@@ -2,10 +2,8 @@ var fastn = require('^fastn'),
     app = require('^app'),
     simpleDate = require('simple-date'),
     titlecase = require('titlecase'),
-    jsPDF = require('jspdf-browserify'),
-    defaultStyle = fastn.binding('styles.default').attach(app.models.data.model)(),
-    customStyle = fastn.binding('styles.custom').attach(app.models.data.model)(),
-    resumeSection = fastn.binding('styles.currentStyle.resumeSection').attach(app.models.data.model)();
+    jsPDF = require('jspdf-browserify');
+    
 
 
 
@@ -21,7 +19,7 @@ module.exports = function( activityModel ){
         fastn('div',{class: 'sheet'}, 
             fastn('div',{class: 'noteTitle'}, 'Drag a valid JSONResume file onto the page and render your resume.' ),
             fastn('list', {
-                class: 'resumeDetails',
+                // class: 'resumeDetails',
                 items: fastn.binding('data.'+dataSource+'|*'),
                 template: function(model){
                    // sheet -  sheet handles 
@@ -55,29 +53,41 @@ module.exports = function( activityModel ){
 
 
                    return fastn('div', { 
-                            'style' : app.models.data.currentStyle().title
-                        }, fastn.binding('key'),
+                            'style' : fastn.binding('key',function(key){
+                                return app.models.data.currentStyle(key);
+                            })
+                        }, fastn.binding('key', function(key){
+                                return app.models.data.currentStyleLabel(key);
+                        }),
                         fastn('list', {
-                            class: 'resumeSectionList',
+                            class: fastn.binding('styles.currentStyle.paragraph').attach(app.models.data.model),
                             items: fastn.binding('item|*'),
                             template: function(model){
-                                return fastn('div',{  'style' : resumeSection  }, 
+                                return fastn('div',{  'style' : fastn.binding('styles.currentStyle.title').attach(app.models.data.model)  }, 
                                     fastn.binding('.', function(sectionItem){
                                         return ( sectionItem.item  && typeof sectionItem.item === 'string'  ) ? sectionItem.key + ':  ' + sectionItem.item : '';
                                     }), 
                                     fastn('list', {
                                         items: fastn.binding('item|*'),
                                         template: function(model){
-                                            return fastn('div',{class: fastn.binding('styles.currentStyle.paragraph') }, 
-                                                    fastn('div',{class: 'resumeItemLabel'}, 
-                                                        fastn.binding('.',function(dat){
-                                                            var itemKey = titlecase(dat.key.toString()) ;
-                                                            var item = ( dat.key.toString().match(/date/gi) ) ? simpleDate.format(new Date(dat.item),'dmy') : dat.item;
-                                                            var row = itemKey  + ':  ' + item 
-                                                        return row;
-                                                    })
+                                            return fastn('div',{
+                                                class: fastn.binding('styles.currentStyle.item').attach(app.models.data.model)
+                                            }, 
+                                                fastn.binding('key', function(key){
+                                                        console.log('key',key);
+                                                        return app.models.data.currentStyleLabel(key);
+                                                }),
+                                                ': ',
+                                                fastn.binding('item')     
+                                                // fastn('div',{class: 'resumeItemLabel'}, 
+                                                //     fastn.binding('.',function(dat){
+                                                //         var itemKey = titlecase(dat.key.toString()) ;
+                                                //         var item = ( dat.key.toString().match(/date/gi) ) ? simpleDate.format(new Date(dat.item),'dmy') : dat.item;
+                                                //         var row = itemKey  + ':  ' + item 
+                                                //     return row;
+                                                // })
 
-                                                ) 
+                                                // ) 
                                             ); 
                                         }
                                     })
@@ -88,18 +98,19 @@ module.exports = function( activityModel ){
                     );
                 }
             })
-        )
-        .on('dragenter', function(event){ 
+        ).on('dragenter', function(event){ 
             event.preventDefault();
+            event.target.classList.add('css3DragOver');    
         })
         .on('dragover',  function(event){ 
             event.preventDefault();
             event.dataTransfer.dropEffect = 'copy';
+            event.target.classList.remove('css3DragOver');
         })
         .on('drop', function(event) {
             event.preventDefault();
             event.target.style.border = null;
-
+            event.target.classList.remove('css3DragOver');
             var file = event.dataTransfer.files[0]; 
             if (!file.type.match('application/json')) {
                 alert('Not a JSON file!');

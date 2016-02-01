@@ -46,8 +46,8 @@ dataModel.on('data.defaultResume', function (resume){
 
 function init(){
     dataModel.set('data',data);
-    dataModel.set('schemas',schemas)
-    dataModel.set('styles',styles)
+    dataModel.set('schemas',schemas);
+    dataModel.set('styles',styles);
 }
 
 function resetStyleToDefault(){
@@ -60,13 +60,29 @@ function resetResumeToDefault(){
     dataModel.set('data.currentResume', defaultResume );
 }
 
-function updateStyle(style){
+function updateStyle(style, callback){
     var currentResume = dataModel.get('data.currentResume');
-    dataModel.set('styles.currentStyle', style, function(){
-      console.log('done update');
-    });
+    dataModel.set('styles.currentStyle', style);
+    //   , function(){
+    //   console.log('done update');
+    // });
     dataModel.set('data.currentResume', currentResume);
+    callback(null,null);
 }
+
+function currentStyle(key){
+    var currentStyle = dataModel.get('styles.currentStyle');
+    // console.log('key',key);
+    return currentStyle[key]['style'];
+}
+
+function currentStyleLabel(key){
+    var currentStyle = dataModel.get('styles.currentStyle');
+    return ( currentStyle.hasOwnProperty( key ) ) ?  currentStyle[key]['label'] : key;
+}
+
+
+
 
 init();
 
@@ -74,5 +90,6 @@ module.exports = {
     model: dataModel,
     resetStyleToDefault: resetStyleToDefault,
     updateStyle: updateStyle,
-    currentStyle : fastn.binding('styles.currentStyle').attach(dataModel)
+    currentStyle : currentStyle, 
+    currentStyleLabel : currentStyleLabel 
 };

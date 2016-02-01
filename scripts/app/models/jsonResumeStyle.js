@@ -5,62 +5,165 @@ var defaultPadding = '10px',
 
 module.exports = {
      "defaultStyle":{   
+        "startDate": {
+            "style": { 
+                "color" : "purple",
+                "font-family" : "Roboto"
+            },
+            "showLabel":true,
+            "label": "Start Date"
+        },
+        "endDate":{
+            "style": { 
+                "color" : "red",
+                "font-family" : "Roboto"
+            },
+            "showLabel":true,
+            "label": "End Date"
+        },
         "basics": {
-            "color" : "blue",
-            "font-family" : "Roboto"
+            "style": { 
+                "color" : "blue",
+                "font-family" : "Roboto"
+            },
+            "show":false,
+            "label": "Basics"
+        }, "profiles": {
+            "style": { 
+                "color" : "blue",
+                "font-family" : "Roboto"
+            },
+            "show":true,
+            "label": "Profiles"
+        },"address": {
+            "style": { 
+                "color" : "blue",
+                "font-family" : "Roboto"
+            },
+            "show":true,
+            "label": "Contact"
+        },"postalCode": {
+            "style": { 
+                "color" : "green",
+                "font-family" : "Roboto"
+            },
+            "show":true,
+            "label": "Postcode"
         },"work": {
-            "color" : "red",
-            "font-family" : "Roboto"
+            "style": { 
+                "color" : "red",
+                "font-family" : "Roboto"
+            },
+            "show":true,
+            "label": "Work Experience"
         },"volunteer": {
-            "color" : "lightGreen",
-            "font-family" : "Arial"
+            "style": { 
+                "color" : "lightGreen",
+                "font-family" : "Arial"
+            },
+            "show":true,
+            "label": "Volunteer Experience"
         },"education": {
-            "color" : "lightGreen",
-            "font-family" : "Roboto"
+            "style": { 
+                "color" : "lightGreen",
+                "font-family" : "Roboto"
+            },
+            "show":true,
+            "label": "Education"
         },"awards": {
-            "color" : "green",
-            "font-family" : "Courier"
+            "style": { 
+                "color" : "green",
+                "font-family" : "Courier"
+            },
+            "show":false,
+            "label": "Awards"
         },"publications": {
-            "color" : "red",
-            "font-family" : "Roboto"
+            "style": { 
+                "color" : "red",
+                "font-family" : "Roboto"
+            }
         },"skills": {
-            "color" : "blue",
-            "font-family" : "Roboto"
+            "style": { 
+                "color" : "blue",
+                "font-family" : "Roboto"
+            },
+            "show":false,
+            "label": "Skills"
         },"languages": {
-            "color" : "blue",
-            "font-family" : "Roboto"
+            "style": { 
+                "color" : "blue",
+                "font-family" : "Roboto"
+            },
+            "show":false,
+            "label": "Languages"
         },"interests": {
-            "color" : "blue",
-            "font-family" : "Roboto"
+            "style": { 
+                "color" : "blue",
+                "font-family" : "Roboto"
+            },
+            "show":false,
+            "label": "Interests"
         },"references": {
-            "color" : "blue",
-            "font-family" : "Roboto"
-        },"resumeSection":{
-            "padding-bottom": defaultPadding,
-            "display": "flex",
-            "flex-direction": "column",
-            "justify-content": "flex-start",
-            "align-items": "strech",
-            "color": "black",
-            "font-family": alphaFontFamily 
-        },"paragraph":{
-            "padding-bottom": defaultPadding,
-            "display": "flex",
-            "flex-direction": "column",
-            "justify-content": "flex-start",
-            "align-items": "strech",
-            "color": "black",
-            "font-family": alphaFontFamily 
+            "style": { 
+                "color" : "blue",
+                "font-family" : "Roboto"
+            },
+            "show":true,
+            "label": "References"
+        },
+        "resumeSection":{
+            "style":{
+                "padding-bottom": defaultPadding,
+                "display": "flex",
+                "flex-direction": "column",
+                "justify-content": "flex-start",
+                "align-items": "strech",
+                "color": "black",
+                "font-family": alphaFontFamily
+            },
+            "show":true
+            
+        },
+        "paragraph":{
+            "style":{
+                "padding-bottom": defaultPadding,
+                "display": "flex",
+                "flex-direction": "column",
+                "justify-content": "flex-start",
+                "align-items": "strech",
+                "color": "blue",
+                "font-family": alphaFontFamily 
+            },
+            "show":true
+        },
+        "item":{
+            "style": {
+                "padding-bottom": defaultPadding,
+                "display": "flex",
+                "flex-direction": "row",
+                "justify-content": "flex-start",
+                // "align-items": "strech",
+                "color": "yellow",
+                "font-size" : "10px",
+                "font-family": alphaFontFamily 
+            },
+            "show":true
         },
         "title": { 
-            "color" : "blue",
-            "font-family" : primaryFontFamily,
-            "font-size" : "40px"
+            "style":{
+                "color" : "green",
+                "font-family" : secondaryFontFamily,
+                "font-size" : "20px"
+            },
+            "show":true
         },
         "sectionTitle": { 
-            "color" : "red",
-            "font-family" : secondaryFontFamily,
-            "font-size" : "20px"
+            "style":{
+                "color" : "red",
+                "font-family" : secondaryFontFamily,
+                "font-size" : "20px"
+            },
+            "show":true
         },
     }
 }
